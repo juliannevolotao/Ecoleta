@@ -1,16 +1,17 @@
-import express from 'express';
-
+import express from "express";
+import routes from "./routes";
+import path from "path";
 const app = express();
 
-app.get('/users', (req, res) => {
-  console.log("listagem de usuários");
-  res.json([
-    'Julianne',
-    'Anne'
-  ])
-})
-app.listen(3333, (req, res) => {
-  console.log("Servidor está rodando");
-})
+app.use(express.json());
+app.use(routes);
+
+app.use("/uploads", express.static(
+  path.resolve(__dirname, "..", "uploads"))
+);
+
+app.listen(3333, () => {
+  console.log("Servidor está rodando na porta 3333");
+});
 
 // Node só entende javascript
