@@ -1,0 +1,119 @@
+@import '../../config/variables.scss';
+
+.home__container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+
+  .home__content {
+    display: flex;
+    width: 100%;
+    max-width: 1024px;
+    flex-direction: column;
+  }
+
+  .home__menu {
+    width: 100%;
+    padding: 30px 0;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    img {
+      width: 150px;
+    }
+  }
+
+  .home__body {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+
+    .home__texts {
+      max-width: 560px;
+      height: 50%;
+      h1 {
+        font-size: 2.8rem;
+        line-height: 55px;
+      }
+
+      .texts__legend {
+        padding: 20px 0;
+        font-size: 1.4rem;
+        line-height: 35px;
+      }
+
+      .texts__button {
+        width: 360px;
+        height: 60px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $primary-color;
+        text-decoration: none;
+        color: #fff;
+        transition: all .3s;
+
+        .texts__icon {
+          width: 60px;
+          border-radius: 10px 0 0 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: $primary-darkness;
+          height: 100%;
+
+          svg {
+            font-size: 22px;
+          }
+        }
+
+        span {
+          width: calc(100% - 60px);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.05rem;
+        }
+
+        &:hover {
+          transform: scale(0.98);
+          box-shadow: 0px 0px 10px rgba(0,0,0,0.11);
+        }
+
+      }
+    }
+
+    img {
+      position: absolute;
+      width: 80%;
+      bottom: 0;
+      right: -85px;
+    }
+  }
+
+  // .menu__login {
+  //   display: flex;
+  //   align-items: center;
+  //   color: $title-color;
+  //   font-weight: bold;
+  //   text-decoration: none;
+  //   font-size: .85rem;
+  //   transition: transform .3s;
+
+  //   svg {
+  //     color: $primary-color;
+  //     font-size: 20px;
+  //     margin-right: 20px;
+  //   }
+
+  //   &:hover {
+  //     transform: scale(0.99);
+  //   }
+  // }
+}
