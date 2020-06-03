@@ -1,4 +1,5 @@
 #Node Modules
 */node_modules
 
-*/database.sqlite
+#Database
+database.sqlite
