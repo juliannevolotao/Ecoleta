@@ -26,7 +26,7 @@ const Home = () => {
                 <p>de coleta de forma eficiente.</p>
               </p>
 
-              <Link to="/create-points" className="texts__button">
+              <Link to="/create-point" className="texts__button">
                 <div className="texts__icon">
                   <FiLogIn />
                 </div>
