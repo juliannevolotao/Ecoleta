@@ -1,0 +1,43 @@
+@import '../../config/variables.scss';
+
+.confirm__container {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(1, 5, 0, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 2;
+  animation: fadeIn .2s;
+
+  .confirm__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+
+    svg {
+      font-size: 3.2rem;
+      color: $primary-color;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      color: white;
+      font-weight: bold;
+      font-size: 2rem;
+    }
+
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
