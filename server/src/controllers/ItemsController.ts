@@ -5,6 +5,10 @@ class ItemsController {
   async index(req: Request, res: Response) {
     const items = await knex("items").select("*");
 
+    if(!items) {
+      return res.status(404).json({ err: 'Some error ocurred'});
+    }
+
     // transformo os dados para um novo formato o qual vai ser mais acessível para quem está acessando a rota
     const serializedItems = items.map((item) => {
       return {
@@ -13,6 +17,10 @@ class ItemsController {
         image_url: `http://localhost:3333/uploads/${item.image}`,
       };
     });
+
+    if(!serializedItems) {
+      return res.status(400).json({ err: 'Some error ocurred'});
+    }
 
     return res.json(serializedItems);
   }

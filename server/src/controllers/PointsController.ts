@@ -3,12 +3,14 @@ import knex from "../database/connection"; // Minha conexão com o banco de dado
 
 class PointsController {
 
-  async index(req: Request, res: Response) {
+  async filter(req: Request, res: Response) {
     const { city, uf, items } = req.query;
 
     const parsedItems = String(items)
       .split(",")
       .map((item) => Number(item.trim()));
+
+      console.log(parsedItems)
 
     const points = await knex('points')
       .join('point_items', 'points.id', '=', 'point_items.point_id')
@@ -17,6 +19,10 @@ class PointsController {
       .where('uf', String(uf))
       .distinct()
       .select('points.*')
+
+    if(!points) {
+      return res.status(404).json({ err: 'No points with this filter'});
+    }
 
     return res.json(points);
   }
@@ -53,6 +59,10 @@ class PointsController {
     const insertedIds = await trx("points").insert(point);
 
     const point_id = insertedIds[0];
+
+    if(items.length <= 0) {
+      return res.status(400).json({msg: 'At least one item have to be selected.'})
+    }
 
     const pointItems = items.map((item_id: number) => {
       return {
