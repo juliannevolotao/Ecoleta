@@ -10,17 +10,24 @@ class PointsController {
       .split(",")
       .map((item) => Number(item.trim()));
 
-      console.log(parsedItems)
+  
+    const allItems = [1, 2, 3, 4, 5, 6]
 
+    // const test = await knex.raw('SELECT * FROM points JOIN point_items ON points.id = point_items.point_id [SELECT point_items.point_id UNION ALL] AS items_ids')
+    // console.log(test)
+    
     const points = await knex('points')
       .join('point_items', 'points.id', '=', 'point_items.point_id')
-      .whereIn('point_items.item_id', parsedItems)
+      .whereIn('point_items.item_id', isNaN(Number(parsedItems)) ? allItems : parsedItems)
       .where('city', String(city))
       .where('uf', String(uf))
-      .distinct()
-      .select('points.*')
+      .select('*')
+      .groupBy('points.id')
 
-    if(!points) {
+
+      // console.log(points)
+
+    if(points.length ===  0 ) {
       return res.status(404).json({ err: 'No points with this filter'});
     }
 
