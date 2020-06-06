@@ -6,15 +6,12 @@
 <br>
 
 <p align="center">
-  :computer: <a href="#computer-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  :computer: <a href="#computer-tecnologias">Tecnologias</a>
 </p>
 
 <p align="center">
     <img alt="Preview" src=".github/big-banner.jpg" >
 </p>
-
-
-
 
 <br>
 <br>
