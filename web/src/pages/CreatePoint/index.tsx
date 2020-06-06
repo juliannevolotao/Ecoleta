@@ -210,7 +210,7 @@ const CreatePoint = () => {
             </div>
 
             <div className="create__body">
-              <form className="create__form" onSubmit={handleSubmit}>
+              <form className="create__form" onSubmit={handleSubmit} autoComplete="false">
                 <h1>
                   Cadastro do <p>ponto de coleta</p>
                 </h1>
@@ -224,6 +224,7 @@ const CreatePoint = () => {
                     <label htmlFor="name">Nome da entidade</label>
                     <input
                       name="name"
+                      autoComplete="false"
                       onChange={handleInputChange}
                       type="text"
                       id="name"
@@ -235,6 +236,7 @@ const CreatePoint = () => {
                       <label htmlFor="email">Email</label>
                       <input
                         name="email"
+                        autoComplete="false"
                         onChange={handleInputChange}
                         type="email"
                         id="email"
@@ -244,6 +246,7 @@ const CreatePoint = () => {
                     <div className="form__field">
                       <label htmlFor="whatsapp">Whatsapp</label>
                       <input
+                        autoComplete="false"
                         name="whatsapp"
                         onChange={handleInputChange}
                         type="text"
@@ -276,6 +279,7 @@ const CreatePoint = () => {
                     <div className="form__field">
                       <label htmlFor="uf">Estado (UF)</label>
                       <select
+                        autoComplete="false"
                         name="uf"
                         id="uf"
                         onChange={handleSelectUf}
@@ -293,6 +297,7 @@ const CreatePoint = () => {
                     <div className="form__field">
                       <label htmlFor="city">Cidade</label>
                       <select
+                        autoComplete="false"
                         name="city"
                         id="city"
                         onChange={handleSelectCity}

@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { ChangeEventHandler, MouseEventHandler } from 'react';
 
 import './styles.scss';
 
-const ModalSearch: React.FC = () => {
+interface ModalSearchProps {
+  ufs: string[];
+  cities: string[];
+  handleOnChangeSelectUF: ChangeEventHandler<HTMLSelectElement>;
+  handleOnChangeSelectCity: ChangeEventHandler<HTMLSelectElement>;
+  handleSearchPoints: MouseEventHandler<HTMLButtonElement>;
+}
+
+const ModalSearch: React.FC<ModalSearchProps> = (props) => {
   return (
     <> 
       <div className="search__container">
@@ -10,15 +18,27 @@ const ModalSearch: React.FC = () => {
         <div className="search__content">
           <h2> Pontos de coleta </h2>
  
-          <select>
-            <option> Selecione o UF </option>
+          <select onChange={props.handleOnChangeSelectUF}>
+            <option value="0"> Selecione o UF </option>
+            {
+              props.ufs.map((uf) => (
+                <option key={uf} value={uf}>
+                  {uf}
+                </option>
+              ))
+            }
           </select>
-          <select>
-            <option> Selecione a Cidade </option>
+          <select onChange={props.handleOnChangeSelectCity}>
+            <option value="0"> Selecione a Cidade </option>
+            {
+              props.cities.map((city) => (
+                <option key={city} value={city}>
+                  {city}
+                </option>
+              ))
+            }
           </select>
-          {/* <input type='text' id="uf" placeholder="Selecione o UF"> </input>
-          <input type='text' id="city" placeholder="Selecione a Cidade"> </input> */}
-          <button className="search__button">Buscar</button>
+          <button onClick={props.handleSearchPoints} className="search__button">Buscar</button>
         </div>
       </div>
     </>
