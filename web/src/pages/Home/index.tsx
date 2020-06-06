@@ -67,7 +67,7 @@ const Home = () => {
   }, [selectedUf]);
 
   const handleSearchButton = () => {
-    setSearchPoints(true);
+    setSearchPoints(!searchPoints);
   };
 
   const handleOnChangeSelectUF = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -93,6 +93,7 @@ const Home = () => {
     <>
       {searchPoints && (
         <ModalSearch
+          handleCloseModal={handleSearchButton}
           handleSearchPoints={handleSearchPoints}
           handleOnChangeSelectUF={handleOnChangeSelectUF}
           handleOnChangeSelectCity={handleOnChangeSelectCity}

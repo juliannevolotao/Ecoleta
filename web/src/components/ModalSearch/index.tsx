@@ -8,13 +8,14 @@ interface ModalSearchProps {
   handleOnChangeSelectUF: ChangeEventHandler<HTMLSelectElement>;
   handleOnChangeSelectCity: ChangeEventHandler<HTMLSelectElement>;
   handleSearchPoints: MouseEventHandler<HTMLButtonElement>;
+  handleCloseModal: MouseEventHandler<HTMLButtonElement>;
 }
 
 const ModalSearch: React.FC<ModalSearchProps> = (props) => {
   return (
     <> 
       <div className="search__container">
-        <div className="search__fade"></div>
+        <div className="search__fade"><button onClick={props.handleCloseModal}></button></div>
         <div className="search__content">
           <h2> Pontos de coleta </h2>
  

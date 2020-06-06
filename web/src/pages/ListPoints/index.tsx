@@ -87,10 +87,10 @@ const ListPoints = () => {
                     <img src={point.image} alt={point.name} />
                   </div>
                   <h3> {point.name} </h3>
-                  <h4> Resíduos Eletrônicos, Lâmpadas </h4>
+                  {/* <h4> Resíduos Eletrônicos, Lâmpadas </h4> */}
                   <p> {point.city}, {point.uf} </p>
-                  <p> Guilherme Gemballa, Jardim América </p>
-                  <p> N° 260 </p>
+                  {/* <p> Guilherme Gemballa, Jardim América </p> */}
+                  {/* <p> N° 260 </p> */}
                 </div>
               ))}
 
